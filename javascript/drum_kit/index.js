@@ -1,5 +1,6 @@
 function handle_click() {
-    alert('I got clicked!');
+    var audio = new Audio('./sounds/tom-1.mp3');
+    audio.play();
 }
 
 const button_elements = document.querySelectorAll('.drum');
