@@ -55,7 +55,7 @@ function check_answer(currentLevel) {
     }
 }
 
-function get_user_chosen_botton_color() {
+function get_user_choice_check_and_go_next_or_game_over() {
     var user_chosen_color = $(this).attr('id');
     user_clicked_pattern.push(user_chosen_color);
     play_sound(user_chosen_color);
@@ -77,7 +77,7 @@ function start_game() {
 }
 
 // Main ##########################################################
-$('[type="button"]').on('click', get_user_chosen_botton_color);
+$('[type="button"]').on('click', get_user_choice_check_and_go_next_or_game_over);
 start_over();
 $(document).on('keyup', function () {
     if (level === 1 || game_pattern.length === 0) {
