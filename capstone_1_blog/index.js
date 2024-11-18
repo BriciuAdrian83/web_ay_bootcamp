@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
     res.render('index.ejs', {
         title: 'All blog posts',
         currentYear: new Date().getFullYear(),
-        // posts,
+        posts,
     });
 });
 
@@ -22,13 +22,13 @@ app.get("/create", (req, res) => {
         title: "Create a Post",
         currentYear: new Date().getFullYear(),
         errors: {},
-        formData: { blogTitle: '', blogContent: ''},
+        formData: { blogTitle: '', blogContent: '' },
     })
 });
 
 
 app.post("/save-post", (req, res) => {
-    const {"blog-title" : blogTitle, "blog-content": blogContent} = req.body;
+    const { "blog-title": blogTitle, "blog-content": blogContent } = req.body;
     const errors = {};
 
     if (!blogTitle || blogTitle.trim() === "") {
@@ -38,7 +38,7 @@ app.post("/save-post", (req, res) => {
         errors.blogContent = "Content is required.";
     }
 
-    if (Object.keys(errors). length > 0) {
+    if (Object.keys(errors).length > 0) {
         return res.render("create.ejs", {
             title: "Create a Post",
             currentYear: new Date().getFullYear(),
@@ -47,7 +47,7 @@ app.post("/save-post", (req, res) => {
         });
     }
 
-    posts.push({ title: blogTitle, content: blogContent });
+    posts.push({ blogTitle: blogTitle, blogContent: blogContent });
     res.redirect("/");
 });
 
