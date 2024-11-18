@@ -15,6 +15,14 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/create", (req, res) => {
+    res.render("create.ejs", {
+        title: "Create a Post",
+        current_year: new Date().getFullYear(),
+    })
+});
+
+
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
 });
