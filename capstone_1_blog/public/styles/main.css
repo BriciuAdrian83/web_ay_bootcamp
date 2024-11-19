@@ -83,13 +83,92 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: "Merriweather", serif;
+  font-weight: bold;
 }
 
 .main-footer p {
   margin-left: var(--spacing-md);
 }
 
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
 
+.post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.post-container form {
+  margin-left: var(--spacing-md);
+}
+
+.post-container form .blog-title-form  {
+  display: flex;
+  width: 620px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-container form .blog-content-form  {
+  display: flex;
+  width: 620px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: var(--spacing-md);
+}
+
+.post-container form .blog-button-form  {
+  display: flex;
+  flex-direction: column;
+  width: 620px;
+  align-items: flex-end;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+
+.post-container .blog-title-form {
+  width: 100%;
+}
+
+.post-container h1 {
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+}
+
+.post-container form {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.post-container form .blog-button-form .btn-save-or-edit {
+  background-color: rgb(80, 191, 191);
+  color: white;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  border-radius: 5px;
+}
+
+.post-container form .blog-button-form .btn-save-or-edit:hover {
+  background-color: rgb(80, 191, 191);
+  color: white;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  border-radius: 5px;
+  background-color: rgb(23, 125, 125);
+  transform: translateY(-0.5px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
   
 
 /* Mobile Size */

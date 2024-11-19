@@ -3,19 +3,25 @@
         <h1>Create a post</h1>
 
         <form action="/save-post" method="POST">
-            <label for="blog-title">Blog Title:</label>
-            <textarea id="blog-title" name="blog-title" rows="1" cols="66" required><%= formData.blogTitle || '' %></textarea>
-            <% if (locals.errors.blogTitle) { %>
-                <p style="color:red;"><%= errors.blogTitle %></p>
-            <% } %>
+            <div class="blog-title-form">
+                <label for="blog-title">Blog Title:</label>
+                <textarea id="blog-title" name="blog-title" rows="1" cols="66" required><%= formData.blogTitle || '' %></textarea>
+                <% if (locals.errors.blogTitle) { %>
+                    <p style="color:red;"><%= errors.blogTitle %></p>
+                <% } %>
+            </div>
         
-            <label for="blog-content">Blog Content:</label>
-            <textarea id="blog-content" name="blog-content" rows="5" cols="66" required><%= formData.blogContent || '' %></textarea>
-            <% if (locals.errors.blogContent) { %>
-                <p style="color:red;"><%= locals.errors.blogContent %></p>
-            <% } %>
+            <div class="blog-content-form">
+                <label for="blog-content">Blog Content:</label>
+                <textarea id="blog-content" name="blog-content" rows="5" cols="66" required><%= formData.blogContent || '' %></textarea>
+                <% if (locals.errors.blogContent) { %>
+                    <p style="color:red;"><%= locals.errors.blogContent %></p>
+                <% } %>
+            </div>
         
-            <button type="submit">Save</button>
+            <div class="blog-button-form">
+                <button type="submit" class="btn-primary btn-save-or-edit">Save</button>
+            </div>
         </form>
 
     </div>
