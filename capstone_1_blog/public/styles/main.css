@@ -5,7 +5,8 @@
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
-    --spacing-xl: 68px;
+    --spacing-xl: 46px;
+    --spacing-xxl: 68px;
 
     --btn-height-lg: 32px;
 
@@ -99,7 +100,45 @@ body {
   width: 100%;
 }
 
+.posts-container h1 {
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-xl);
+}
+
+
+.posts-container ul {
+  margin-top: var(--spacing-sm);
+  margin-left: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.posts-container ul li {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  list-style-type: none;
+  margin-bottom: var(--spacing-sm);
+}
+
+.posts-container ul li a {
+  text-decoration: none;
+  color: black;
+}
+.posts-container ul li a:hover {
+  text-decoration: underline;
+}
+
 .post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.post-container h1 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

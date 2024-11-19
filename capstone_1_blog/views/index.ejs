@@ -7,7 +7,7 @@
     <% } else { %>
         <ul>
             <% for( let index = locals.posts.length - 1; index >= 0; index--) { %>
-                <li><%= posts[index].blogTitle %></li>
+                <li><a href="read/<%=index%>"><%= posts[index].blogTitle %></a></li>
             <% } %>
         </ul>
     <% } %>
