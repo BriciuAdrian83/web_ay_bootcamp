@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static("public"));
+
 app.use(express.urlencoded({ extended: true }));
 
 const posts = [];
@@ -49,6 +50,20 @@ app.post("/save-post", (req, res) => {
 
     posts.push({ blogTitle: blogTitle, blogContent: blogContent });
     res.redirect("/");
+});
+
+
+app.get("/read/:index", (req, res) => {
+    const {index} = req.params;
+    const post = posts[index];
+    
+    if (!post) {
+        return res.status(404).render("404.ejs", {
+            title: "Post Not Found",
+            currentYear: new Date().getFullYear(),
+        });
+    }
+
 });
 
 app.listen(port, () => {
