@@ -65,18 +65,20 @@ app.get("/read/:index", (req, res) => {
     }
 
     const blogTitle = post.blogTitle;
-    const blogContent = post.blogContent
-        .replace(/\n/g, '<p>') // Convert newlines to <br>
-        .replace(/- /gm, (match) => {
-            // Add indentation before the bullet point
-            return '&nbsp;&nbsp;&nbsp;&nbsp;' + match; // You can adjust the number of &nbsp; here
-        });
-        // .replace(/^( *)(- )/gm, (match, spaces, bullet) => {
-        //     // Count the number of spaces to determine the nesting level
-        //     const indentationLevel = spaces.length / 2; // Every 2 spaces represent one level of indentation
-        //     const indent = '&nbsp;'.repeat(indentationLevel * 4); // 4 spaces per indentation level
-        //     return indent + bullet + match.trim(); // Prepend spaces and keep the bullet point
-        // });
+    let blogContent = post.blogContent
+    // replace spaces after new line and before - with html space char
+    blogContent = blogContent.replace(/\n( *)-/g, (match, spaces) => {
+        const nbsp = '&nbsp;&nbsp;'.repeat(spaces.length); // Replace spaces with &nbsp;
+        return `\n${nbsp}-`; // Preserve the newline and bullet.
+    });
+    // Replace newlines with <p></p> tags.
+    blogContent = blogContent
+    .split('\n')
+    .map(line => `<p>${line}</p>`)
+    .join('');
+
+    console.log(blogContent)
+    
     
     res.render("read.ejs", {
         title: "Read a Post",
