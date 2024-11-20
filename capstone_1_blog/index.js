@@ -66,11 +66,17 @@ app.get("/read/:index", (req, res) => {
 
     const blogTitle = post.blogTitle;
     const blogContent = post.blogContent
-        .replace(/\n/g, '<br>') // Convert newlines to <br>
+        .replace(/\n/g, '<p>') // Convert newlines to <br>
         .replace(/- /gm, (match) => {
             // Add indentation before the bullet point
             return '&nbsp;&nbsp;&nbsp;&nbsp;' + match; // You can adjust the number of &nbsp; here
         });
+        // .replace(/^( *)(- )/gm, (match, spaces, bullet) => {
+        //     // Count the number of spaces to determine the nesting level
+        //     const indentationLevel = spaces.length / 2; // Every 2 spaces represent one level of indentation
+        //     const indent = '&nbsp;'.repeat(indentationLevel * 4); // 4 spaces per indentation level
+        //     return indent + bullet + match.trim(); // Prepend spaces and keep the bullet point
+        // });
     
     res.render("read.ejs", {
         title: "Read a Post",
