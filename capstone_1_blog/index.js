@@ -64,6 +64,22 @@ app.get("/read/:index", (req, res) => {
         });
     }
 
+    const blogTitle = post.blogTitle;
+    const blogContent = post.blogContent
+        .replace(/\n/g, '<br>') // Convert newlines to <br>
+        .replace(/- /gm, (match) => {
+            // Add indentation before the bullet point
+            return '&nbsp;&nbsp;&nbsp;&nbsp;' + match; // You can adjust the number of &nbsp; here
+        });
+    
+    res.render("read.ejs", {
+        title: "Read a Post",
+        currentYear: new Date().getFullYear(),
+        blogTitle: blogTitle,
+        blogContent: blogContent,
+    });
+
+
 });
 
 app.listen(port, () => {
