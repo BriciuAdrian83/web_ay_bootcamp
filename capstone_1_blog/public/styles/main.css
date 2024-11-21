@@ -48,6 +48,11 @@ body {
     text-decoration: underline;
 }
 
+#about-header,
+#contact-header {
+  margin-bottom: var(--spacing-lg);
+}
+
 .btn-primary {
     background-color: white;
     border-radius: 15px;

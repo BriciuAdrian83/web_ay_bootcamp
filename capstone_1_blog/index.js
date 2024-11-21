@@ -18,6 +18,22 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/about", (req, res) => {
+
+    res.render('about.ejs', {
+        title: 'About',
+        currentYear: new Date().getFullYear(),
+    });
+});
+
+app.get("/contact", (req, res) => {
+
+    res.render('contact.ejs', {
+        title: 'Contact',
+        currentYear: new Date().getFullYear(),
+    });
+});
+
 app.get("/create", (req, res) => {
     res.render("form.ejs", {
         title: "Create a Post",
@@ -158,7 +174,7 @@ app.post("/delete-post/:index", (req, res) => {
             currentYear: new Date().getFullYear(),
         });
     }
-    
+
     const post = posts[index];
 
     if (!post) {
