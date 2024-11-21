@@ -16,6 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
 }
 .container-main {
     width: 90%;
@@ -103,6 +104,10 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .posts-container h1 {
@@ -110,6 +115,7 @@ body {
   font-weight: bold;
   margin-bottom: var(--spacing-sm);
   margin-top: var(--spacing-xl);
+
 }
 
 
@@ -143,13 +149,7 @@ body {
   width: 100%;
 }
 
-.post-container h1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-}
+
 
 .post-container form {
   margin-left: var(--spacing-md);
@@ -328,6 +328,14 @@ body {
         top: 60px;
         transform: translateX(100vw); 
         transition: transform 0.5s ease; 
+    }
+
+    .post-container {
+      width: 100vw;
+    }
+
+    .post-container h1 {
+      font-size: 4px;
     }
     
     .mobile-nav a {
