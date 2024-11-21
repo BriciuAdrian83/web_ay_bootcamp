@@ -10,7 +10,11 @@
     </div>
 
     <div class="edit-an-delete-btn-container">
-        <a href="/delete/<%= index %>" class="btn-primary btn-delete">Delete post</a>
+        <div class="delete-btn-container">
+            <form action="/delete-post/<%= index %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                <button type="submit" class="btn-primary btn-delete">Delete post</button>
+            </form>
+        </div>
         <a href="/edit/<%= index %>" class="btn-primary btn-save-or-edit">Edit post</a>
     </div>  
     <%- include('partials/footer.ejs') %>

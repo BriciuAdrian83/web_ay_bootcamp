@@ -148,3 +148,27 @@ app.post("/update-post/:index", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
 });
+
+app.post("/delete-post/:index", (req, res) => {
+    const { index } = req.params;
+
+    if (isNaN(index) || index < 0 || index >= posts.length) {
+        return res.status(404).render("404.ejs", {
+            title: "Post Not Found",
+            currentYear: new Date().getFullYear(),
+        });
+    }
+    
+    const post = posts[index];
+
+    if (!post) {
+        return res.status(404).render("404.ejs", {
+            title: "Post Not Found",
+            currentYear: new Date().getFullYear(),
+        });
+    }
+
+    posts.splice(index, 1);
+    
+    res.redirect("/");
+});

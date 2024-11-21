@@ -9,4 +9,4 @@ hamburger.addEventListener('click', () => {
     bar2.classList.toggle('animate_bar_2');
     bar3.classList.toggle('animate_bar_3');
     mobile_nav.classList.toggle('open-mobile-nav');
-})
+});

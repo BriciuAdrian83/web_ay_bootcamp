@@ -215,6 +215,7 @@ body {
   color: white;
   font-family: "Merriweather", serif;
   font-weight: 400;
+  font-size: 1rem;
   border-radius: 5px;
   margin-right: 50px;
   text-decoration: none;
@@ -235,6 +236,8 @@ body {
 .edit-an-delete-btn-container {
   width: 100%;
   margin: var(--spacing-lg) var(--spacing-lg);
+  display: flex;
+  justify-content: flex-start;
 }
   
 
