@@ -10,7 +10,7 @@
     </div>
 
     <div class="edit-an-delete-btn-container">
-        <button class="btn-primary btn-delete">Delete post</button>
-        <button class="btn-primary btn-save-or-edit">Edit post</button>
+        <a href="/delete/<%= index %>" class="btn-primary btn-delete">Delete post</a>
+        <a href="/edit/<%= index %>" class="btn-primary btn-save-or-edit">Edit post</a>
     </div>  
     <%- include('partials/footer.ejs') %>

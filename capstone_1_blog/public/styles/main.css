@@ -196,6 +196,8 @@ body {
   font-family: "Merriweather", serif;
   font-weight: 400;
   border-radius: 5px;
+  text-decoration: none;
+  padding: 3px 3px;
 }
 
 .btn-save-or-edit:hover {
@@ -215,6 +217,8 @@ body {
   font-weight: 400;
   border-radius: 5px;
   margin-right: 50px;
+  text-decoration: none;
+  padding: 3px 3px;
 }
 
 .btn-delete:hover {
