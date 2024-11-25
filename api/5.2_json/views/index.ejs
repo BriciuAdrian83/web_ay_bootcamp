@@ -16,17 +16,29 @@
   </form>
   <div id="recipeContainer" class="hidden">
 
-    <!-- If no recipe yet, show: -->
-    <h2>Pick your favourite taco ingredient 👆</h2>
-    <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
+    <% if (!locals.obj_selected_recipe) { %>
+      <h2>Pick your favourite taco ingredient 👆</h2>
+      <% } else { %>
+        <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
 
-    <h3>Ingredients:</h3>
-    <ul id="ingredientsList">
-      <li>Protein name, protein preparation</li>
-      <li>Salsa name</li>
-      <li>Every other topping</li>
-    </ul>
+        <h3>Ingredients:</h3>
+        <ul id="ingredientsList">
+          <li>
+            <%=obj_selected_recipe.ingredients.protein.name %>, <%=obj_selected_recipe.ingredients.protein.preparation
+                %>
+          </li>
+          <li>
+            <%=obj_selected_recipe.ingredients.salsa.name %>
+          </li>
+          <% for( let index=0; index < obj_selected_recipe.ingredients.toppings.length; index++ ) { %>
+            <li>
+              <%=obj_selected_recipe.ingredients.toppings[index].quantity%> of
+                <%=obj_selected_recipe.ingredients.toppings[index].name%>
+            </li>
+            <% } %>
+        </ul>
 
+        <% } %>
 
 
   </div>
