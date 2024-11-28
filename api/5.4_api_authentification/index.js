@@ -1,15 +1,19 @@
 import express from "express";
 import axios from "axios";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 const app = express();
 const port = 3000;
 const API_URL = "https://secrets-api.appbrewery.com/";
 
 //TODO 1: Fill in your values for the 3 types of auth.
-const yourUsername = "nomercy4u21";
-const yourPassword = "this_is_to_be_deleted_4u21";
-const yourAPIKey = "3efa6c4e-2894-4b13-8892-02800e439f91";
-const yourBearerToken = "5dde7b47-86aa-4f2d-af6a-e02eb23f26bd";
+const yourUsername = process.env.USERNAME;
+const yourPassword = process.env.PASSWORD;
+const yourAPIKey = process.env.API_KEY;
+const yourBearerToken = process.env.BEARER_TOKEN;
+
 
 app.get("/", (req, res) => {
   res.render("index.ejs", { content: "API Response." });
