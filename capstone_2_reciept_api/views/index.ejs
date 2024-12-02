@@ -1,16 +1,8 @@
 <%- include('partials/header.ejs') %>
 
 <div class="posts-container">
-    <h1>Blog Posts:</h1>
-    <% if (!locals.posts) { %>
-     <h2>No posts available, you can create post by clicking the top right buton.</h2>
-    <% } else { %>
-        <ul>
-            <% for( let index = locals.posts.length - 1; index >= 0; index--) { %>
-                <li><a href="read/<%=index%>"><%= posts[index].blogTitle %></a></li>
-            <% } %>
-        </ul>
-    <% } %>
+    <h1>Utilities data:</h1>
+   
 </div>
 
 <%- include('partials/footer.ejs') %>
