@@ -53,7 +53,7 @@ body {
 }
 
 
-.btn-primary {
+.btn-primary-custom {
     background-color: white;
     border-radius: 15px;
     border: none;
@@ -62,7 +62,7 @@ body {
 
 }
 
-.btn-primary.btn-add-utility-invoice {
+.btn-primary-custom.btn-add-utility-invoice {
     color: #07c9b5;
     font-weight: 600;
     height: var(--btn-height-lg);
@@ -71,7 +71,7 @@ body {
 }
 
 
-.btn-primary.btn-add-utility-invoice:hover {
+.btn-primary-custom.btn-add-utility-invoice:hover {
     background-color: #f8f8f8;
     transform: translateY(-0.5px);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -199,7 +199,7 @@ body {
         text-decoration: underline;
     }
     
-    .mobile-nav .btn-primary.btn-add-utility-invoice {
+    .mobile-nav .btn-primary-custom.btn-add-utility-invoice {
         margin: 0 0 15px 0;
     }
     

@@ -16,6 +16,16 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/upload_reciept", (req, res) => {
+    res.render("upload_reciept.ejs", {
+        title: 'All utility invoices',
+        currentYear: new Date().getFullYear(),
+    });
+});
+
+
+
+
 
 // Start the server
 app.listen(PORT, () => {
