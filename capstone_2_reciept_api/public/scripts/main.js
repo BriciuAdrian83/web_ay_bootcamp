@@ -10,3 +10,14 @@ hamburger.addEventListener('click', () => {
     bar3.classList.toggle('animate_bar_3');
     mobile_nav.classList.toggle('open-mobile-nav');
 });
+
+
+document.querySelector('form').addEventListener('submit', function (e) {
+    const file_input = document.getElementById('file-input');
+    const file = file_input.files[0];
+
+    if (file && file.type !== 'application/pdf') {
+        e.preventDefault();
+        alert('Please upload a valid PDF file.');
+    }
+});

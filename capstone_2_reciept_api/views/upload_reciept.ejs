@@ -1,13 +1,40 @@
 <%- include('partials/header.ejs') %>
 
-<div class="container-main">
+    <div class="container-main">
 
-    <div class="container-content">
-        <h1>Upload a new utility reciept</h1>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-target="#uploadModal">Upload your reciept</button>
+        <div class="container-content">
+            <h1>Upload a new utility reciept</h1>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">Upload your
+                reciept</button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="uploadModalLabel">Upload your reciept by clicking the botton
+                            bellow and choosing the pdf file</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=&times;></button>
+                    </div>
+                    <form action="/reciept" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="file-input">Upload Receipt (PDF only)</label>
+                                <input type="file" id="file-input" name="receipt" class="form-control" accept="application/pdf" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+
+
+
     </div>
-   
-</div>
 
-<%- include('partials/footer.ejs') %>
-
+    <%- include('partials/footer.ejs') %>
