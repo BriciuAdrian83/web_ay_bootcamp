@@ -10,6 +10,13 @@ const masterKey = process.env.masterKey;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //1. GET a random joke
+app.get("/random", (req, res) => {
+  const randomIndex = Math.floor(Math.random() * jokes.length);
+  const randomJokeObj = jokes[randomIndex];
+
+  res.json(randomJokeObj);
+
+});
 
 //2. GET a specific joke
 
