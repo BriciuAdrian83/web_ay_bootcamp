@@ -19,6 +19,28 @@ app.get("/random", (req, res) => {
 });
 
 //2. GET a specific joke
+app.get("/jokes/:id", (req, res) => {
+  const requestedJokeId = parseInt(req.params.id, 10);
+  // let curentJokeObj = {};
+  // let foundJokeObj = {}; 
+  // let jokeFound = false;
+  // for (let i = 0; i < jokesObjArr.length; i++) {
+  //   curentJokeObj = jokesObjArr[i];
+  //   if (parseInt(curentJokeObj.id, 10) === id) {
+  //     foundJokeObj = curentJokeObj;
+  //     jokeFound = true;
+  //     break;
+  //   }
+  // }
+  const foundJoke = jokes.find((joke) => parseInt(joke.id, 10) === requestedJokeId);
+
+  if (foundJoke !== 'undefined') {
+    res.json(foundJoke);
+  } else {
+    res.status(404).send('Joke not found'); 
+  }
+
+}); 
 
 //3. GET a jokes by filtering on the joke type
 
