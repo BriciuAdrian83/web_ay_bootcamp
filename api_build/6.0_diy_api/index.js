@@ -3,6 +3,23 @@ import bodyParser from "body-parser";
 import dotenv from 'dotenv';
 dotenv.config();
 
+
+function getJokeIndex(jokes, jokeId) {
+    let jokeIdFound = false;
+    let foundJokeIndex = 0;
+    for (let i = 0; i < jokes.length; i++) {
+        if (jokes[i].id === jokeId) {
+            jokeIdFound = true;
+            foundJokeIndex = i;
+            break;
+        }
+    }
+    if (jokeIdFound) {
+        return foundJokeIndex;
+    }
+    return undefined;
+}
+
 const app = express();
 const port = 3000;
 const masterKey = process.env.masterKey;
@@ -50,10 +67,10 @@ app.get("/filter", (req, res) => {
 
     res.json(filteredJokes);
 
-}); 
+});
 
 //4. POST a new joke
-app.post("/jokes", (req,  res) => {
+app.post("/jokes", (req, res) => {
     const inputJokeText = req.body.text;
     const inputJokeType = req.body.type;
 
@@ -72,6 +89,20 @@ app.post("/jokes", (req,  res) => {
 
 });
 //5. PUT a joke
+app.put("/jokes/:id", (req, res) => {
+    const requestedId = parseInt(req.params.id, 10);
+    const updatedJokeIndex = getJokeIndex(jokes, requestedId);
+    const updatedJokeText = req.body.text;
+    const updatedJokeType = req.body.type;
+
+    console.log(updatedJokeIndex);
+
+    jokes[updatedJokeIndex].jokeText = updatedJokeText;
+    jokes[updatedJokeIndex].jokeType = updatedJokeType;
+
+    res.json(jokes[updatedJokeIndex]);
+
+});
 
 //6. PATCH a joke
 
