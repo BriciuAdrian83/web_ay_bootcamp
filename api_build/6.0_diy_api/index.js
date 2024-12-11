@@ -17,7 +17,7 @@ function getJokeIndex(jokes, jokeId) {
     if (jokeIdFound) {
         return foundJokeIndex;
     }
-    return undefined;
+    return -1;
 }
 
 const app = express();
@@ -95,8 +95,6 @@ app.put("/jokes/:id", (req, res) => {
     const updatedJokeText = req.body.text;
     const updatedJokeType = req.body.type;
 
-    console.log(updatedJokeIndex);
-
     jokes[updatedJokeIndex].jokeText = updatedJokeText;
     jokes[updatedJokeIndex].jokeType = updatedJokeType;
 
@@ -105,10 +103,53 @@ app.put("/jokes/:id", (req, res) => {
 });
 
 //6. PATCH a joke
+app.patch("/jokes/:id", (req, res) => {
+    const requestedId = parseInt(req.params.id, 10);
+    const updatedJokeIndex = getJokeIndex(jokes, requestedId);
+    const updatedJokeText = req.body.text;
+    const updatedJokeType = req.body.type;
+
+    if (updatedJokeText) {
+        jokes[updatedJokeIndex].jokeText = updatedJokeText;
+    }
+
+    if (updatedJokeType) {
+        jokes[updatedJokeIndex].jokeType = updatedJokeType;
+    }
+
+    res.json(jokes[updatedJokeIndex]);
+
+});
+
 
 //7. DELETE Specific joke
+app.delete("/jokes/:id", (req, res) => {
+    const requestedId = parseInt(req.params.id, 10);
+    const deletedJokeIndex = getJokeIndex(jokes, requestedId);
+
+    if (deletedJokeIndex > -1) {
+        jokes.splice(deletedJokeIndex, 1); // 2nd parameter means remove one item only
+        res.sendStatus(200);
+    } else {
+        res.status(404).json({ error: `Joke with id ${requestedId} not found. No jokes were deleted` });
+    }
+
+
+
+});
 
 //8. DELETE All jokes
+app.delete("/all", (req, res) => {
+    if (req.query.key === masterKey) {
+        jokes = [];
+        res.sendStatus(200);
+    } else {
+        res.status(404).json({ error: `You are not authorise to perform this action.` });
+    }
+
+
+
+});
 
 app.listen(port, () => {
     console.log(`Successfully started server on port ${port}.`);
